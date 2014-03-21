@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1> {{ elv_list.0.dong }} 동 </h1>
+  <div class="elev_detail">
+    {% for elv in elv_list %}
+      <div class="col-xs-6">
+        <img width="40%" src="/assets/img/elev.png">
+        {{ elv.min_floor }} {{ elv.max_floor }}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="carpedm20">
+
+    <title>유니엘베</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet/less" type="text/css" href="/assets/css/style.less">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=641444019231608";
+              fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">유니엘베</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              {% for group in group_list %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ group.0.0 }}차<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                  {% for elv in group %}
+                    <li><a href="/{{ elv.1 }}">{{ elv.1 }}동</a></li>
+                  {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="//www.facebook.com/unist.hexa" target="_blank">HeXA</a></li>
+              <li><a href="../navbar-fixed-top/">후기</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <div class="jumbotron">
+        {% block content%}
+        {% endblock content %}
+      </div>
+      <div class="text-center">
+        <div style="margin: 0 auto;" class="fb-comments" data-href="http://hexa.iptime.org:9001/" data-numposts="5" data-colorscheme="light"></div>
+      </div>
+
+      <div class="footer">
+        <p> Created by <a href="//carpedm20.us.to">carpedm20</a> </p>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
+  </body>
+</html>
